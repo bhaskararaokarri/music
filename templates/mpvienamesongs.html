@@ -1,0 +1,20 @@
+{% include 'opensearchpage.html' %}
+{% load static %}
+<table align ="center" border="0" width="30%" style="background-image: url('{% static "images/argt.jpeg"%}')";>
+
+    <tr>
+        <th>moviename</th>
+        <th>artist</th>
+        <th>song</th>
+    </tr>
+    {% for x in mnsong %}
+        <tr>
+        <th>{{ x.moviename }}</th>
+        <th>{{ x.artist }}</th>
+        <th><a href="{% url 'playsong' %}?n={{ x.song.url }}"> {{ x.song.url }} </a></th>
+        </tr>
+    {% endfor %}
+<tr>
+    <th> <a href="{% url 'musichome' %}">previous</a></th>
+</tr>
+</table>
